@@ -1,0 +1,17 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (aquhwinobtifl1xwy0hd) or template name (quantro-nextjs-test-2) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("quantro-nextjs-test-2") # Sync sandbox
+# sandbox = await AsyncSandbox.create("quantro-nextjs-test-2") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('quantro-nextjs-test-2')
+
+team_id = "500edbc5-2493-41bc-874f-5f4bf9af40c5"
+start_cmd = "/compile_page.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "quantro-nextjs-test-2"
+template_id = "aquhwinobtifl1xwy0hd"
