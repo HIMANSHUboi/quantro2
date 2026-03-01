@@ -14,19 +14,19 @@ const t = initTRPC.context<Context>().create({
   /**
    * @see https://trpc.io/docs/server/data-transformers
    */
-   transformer: superjson,
+  transformer: superjson,
 });
 
-const isAuthed = t.middleware(({ next, ctx}) => {
-  if(!ctx.auth.userId) {
+const isAuthed = t.middleware(({ next, ctx }) => {
+  if (!ctx.auth.userId) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
-      message: "Not authanticated"
+      message: "Not authenticated"
     });
   }
 
   return next({
-    ctx : {
+    ctx: {
       auth: ctx.auth
     },
   });
