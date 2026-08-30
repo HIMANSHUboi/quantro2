@@ -36,7 +36,7 @@ const Page = () => {
         <div className="flex justify-center">
           <PricingTable
             appearance={{
-              baseTheme: CurrentTheme === "dark" ? dark : undefined,
+              theme: CurrentTheme === "dark" ? dark : undefined,
               elements: {
                 pricingTableCard:
                   "border border-border rounded-xl shadow-sm transition-all hover:shadow-md hover:border-primary",
