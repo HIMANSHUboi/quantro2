@@ -18,6 +18,18 @@ const nextConfig: NextConfig = {
   // Ensure Prisma works correctly on Vercel serverless
   serverExternalPackages: ["@prisma/client"],
 
+  // Stub out optional deps that are not used in this project but get
+  // referenced by rate-limiter-flexible and @opentelemetry/* packages.
+  // Without this webpack on Vercel treats missing optional modules as errors.
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      "drizzle-orm": false,
+      "@opentelemetry/winston-transport": false,
+    };
+    return config;
+  },
+
   // Don't fail build on lint warnings (errors still fail)
   eslint: {
     ignoreDuringBuilds: true,
